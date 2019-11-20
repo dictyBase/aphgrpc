@@ -7,7 +7,6 @@ import (
 	"errors"
 	"strings"
 
-	spb "google.golang.org/genproto/googleapis/rpc/status"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/metadata"
@@ -75,12 +74,6 @@ func CheckNoRows(err error) bool {
 		return true
 	}
 	return false
-}
-
-func HandleMessagingError(ctx context.Context, st *spb.Status) error {
-	err := status.ErrorProto(st)
-	grpc.SetTrailer(ctx, newError(err.Error()))
-	return err
 }
 
 func HandleError(ctx context.Context, err error) error {
