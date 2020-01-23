@@ -1,7 +1,7 @@
 # aphgrpc
 
 [![License](https://img.shields.io/badge/License-BSD%202--Clause-blue.svg)](LICENSE)  
-[![GoDoc](https://pkg.go.dev/github.com/dictyBase/aphgrpc?tab=doc)](https://pkg.go.dev/github.com/dictyBase/aphgrpc?tab=doc)
+[![GoDoc](https://godoc.org/github.com/dictyBase/aphgrpc?status.svg)](https://pkg.go.dev/github.com/dictyBase/aphgrpc?tab=doc)
 ![Latest release](https://badgen.net/github/release/dictyBase/aphgrpc/?scale=1.1)  
 [![Technical debt](https://badgen.net/codeclimate/tech-debt/dictyBase/aphgrpc)](https://codeclimate.com/github/dictyBase/arangomanager/trends/technical_debt)
 [![Issues](https://badgen.net/codeclimate/issues/dictyBase/aphgrpc)](https://codeclimate.com/github/dictyBase/arangomanager/issues)
