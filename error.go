@@ -32,7 +32,7 @@ var (
 	//ErrExists represents the presence of an HTTP resource
 	ErrExists = newError("Resource already exists")
 	//ErrJSONEncoding represents any json encoding error
-	ErrJSONEncoding = newError("Json encoding error")
+	ErrJSONEncoding = newError("JSON encoding error")
 	//ErrStructMarshal represents any error with marshalling structure
 	ErrStructMarshal = newError("Structure marshalling error")
 	//ErrIncludeParam represents any error with invalid include query parameter
@@ -51,6 +51,20 @@ var (
 	ErrRetrieveMetadata = errors.New("unable to retrieve metadata")
 	//ErrXForwardedHost represents any failure or absence of x-forwarded-host HTTP header in the grpc context
 	ErrXForwardedHost = errors.New("x-forwarded-host header is absent")
+	//ErrAuthentication represents the absence of valid authentication credentials
+	ErrAuthentication = errors.New("Invalid credentials for authentication")
+	//ErrMessagingReply represents any error in request reply messaging
+	ErrMessagingReply = errors.New("messaging reply error")
+	//ErrMessagingReq represents any error in request reply messaging
+	ErrMessagingReq = errors.New("messaging request error")
+	//ErrMessagingSub represents any error in publish subscribe messaging
+	ErrMessagingSub = errors.New("messaging subscription error")
+	//ErrMessagingPub represents any error in publish subscribe messaging
+	ErrMessagingPub = errors.New("messaging publication error")
+	//ErrOuthExchange represents any error in exchanging a code for a token with the oauth server
+	ErrOauthExchange = errors.New("Unable to exchange token for code")
+	//ErrUserRetrieval represents any error in retrieving user information from an oauth provider
+	ErrUserRetrieval = errors.New("Unable to retrieve user information")
 )
 
 func newErrorWithParam(msg, param string) metadata.MD {
@@ -143,4 +157,39 @@ func HandleFilterParamError(ctx context.Context, err error) error {
 func HandleInvalidParamError(ctx context.Context, err error) error {
 	grpc.SetTrailer(ctx, ErrInValidParam)
 	return status.Error(codes.InvalidArgument, err.Error())
+}
+
+func HandleAuthenticationError(ctx context.Context, err error) error {
+	grpc.SetTrailer(ctx, ErrAuthentication)
+	return status.Error(codes.Unauthenticated, err.Error())
+}
+
+func HandleMessagingReplyError(ctx context.Context, err error) error {
+	grpc.SetTrailer(ctx, ErrMessagingReply)
+	return status.Error(codes.Internal, err.Error())
+}
+
+func HandleMessagingReqError(ctx context.Context, err error) error {
+	grpc.SetTrailer(ctx, ErrMessagingReq)
+	return status.Error(codes.Internal, err.Error())
+}
+
+func HandleMessagingSubError(ctx context.Context, err error) error {
+	grpc.SetTrailer(ctx, ErrMessagingSub)
+	return status.Error(codes.Internal, err.Error())
+}
+
+func HandleMessagingPubError(ctx context.Context, err error) error {
+	grpc.SetTrailer(ctx, ErrMessagingPub)
+	return status.Error(codes.Internal, err.Error())
+}
+
+func HandleOauthExchangeError(ctx context.Context, err error) error {
+	grpc.SetTrailer(ctx, ErrOauthExchange)
+	return status.Error(codes.Internal, err.Error())
+}
+
+func HandleUserRetrievalError(ctx context.Context, err error) error {
+	grpc.SetTrailer(ctx, ErrUserRetrieval)
+	return status.Error(codes.Internal, err.Error())
 }
