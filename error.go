@@ -52,19 +52,19 @@ var (
 	//ErrXForwardedHost represents any failure or absence of x-forwarded-host HTTP header in the grpc context
 	ErrXForwardedHost = errors.New("x-forwarded-host header is absent")
 	//ErrAuthentication represents the absence of valid authentication credentials
-	ErrAuthentication = errors.New("Invalid credentials for authentication")
+	ErrAuthentication = newError("Invalid credentials for authentication")
 	//ErrMessagingReply represents any error in request reply messaging
-	ErrMessagingReply = errors.New("messaging reply error")
+	ErrMessagingReply = newError("messaging reply error")
 	//ErrMessagingReq represents any error in request reply messaging
-	ErrMessagingReq = errors.New("messaging request error")
+	ErrMessagingReq = newError("messaging request error")
 	//ErrMessagingSub represents any error in publish subscribe messaging
-	ErrMessagingSub = errors.New("messaging subscription error")
+	ErrMessagingSub = newError("messaging subscription error")
 	//ErrMessagingPub represents any error in publish subscribe messaging
-	ErrMessagingPub = errors.New("messaging publication error")
+	ErrMessagingPub = newError("messaging publication error")
 	//ErrOuthExchange represents any error in exchanging a code for a token with the oauth server
-	ErrOauthExchange = errors.New("Unable to exchange token for code")
+	ErrOauthExchange = newError("Unable to exchange token for code")
 	//ErrUserRetrieval represents any error in retrieving user information from an oauth provider
-	ErrUserRetrieval = errors.New("Unable to retrieve user information")
+	ErrUserRetrieval = newError("Unable to retrieve user information")
 )
 
 func newErrorWithParam(msg, param string) metadata.MD {
