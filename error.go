@@ -193,3 +193,8 @@ func HandleUserRetrievalError(ctx context.Context, err error) error {
 	grpc.SetTrailer(ctx, ErrUserRetrieval)
 	return status.Error(codes.Internal, err.Error())
 }
+
+func HandleJSONEncodingError(ctx context.Context, err error) error {
+	grpc.SetTrailer(ctx, ErrJSONEncoding)
+	return status.Error(codes.Internal, err.Error())
+}
