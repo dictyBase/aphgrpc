@@ -6,5 +6,5 @@ require (
 	github.com/urfave/cli v1.22.5
 	golang.org/x/net v0.0.0-20191119073136-fc4aabc6c914 // indirect
 	golang.org/x/sys v0.0.0-20191008105621-543471e840be // indirect
-	google.golang.org/grpc v1.36.0
+	google.golang.org/grpc v1.38.0
 )
