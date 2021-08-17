@@ -21,6 +21,7 @@ func AssignFieldsToStructs(from interface{}, to interface{}) {
 
 type ServiceOptions struct {
 	Topics   map[string]string
+	Params   map[string]string
 	Resource string
 }
 
