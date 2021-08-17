@@ -37,6 +37,7 @@ type Service struct {
 	Resource string
 	Context  context.Context
 	Topics   map[string]string
+	Params   map[string]string
 }
 
 func (s *Service) GetResourceName() string {
