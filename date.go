@@ -3,16 +3,13 @@ package aphgrpc
 import (
 	"time"
 
-	"github.com/golang/protobuf/ptypes"
-	"github.com/golang/protobuf/ptypes/timestamp"
+	"google.golang.org/protobuf/types/known/timestamppb"
 )
 
-func ProtoTimeStamp(ts *timestamp.Timestamp) time.Time {
-	t, _ := ptypes.Timestamp(ts)
-	return t
+func ProtoTimeStamp(ts *timestamppb.Timestamp) time.Time {
+	return ts.AsTime()
 }
 
-func TimestampProto(t time.Time) *timestamp.Timestamp {
-	ts, _ := ptypes.TimestampProto(t)
-	return ts
+func TimestampProto(t time.Time) *timestamppb.Timestamp {
+	return timestamppb.New(t)
 }
