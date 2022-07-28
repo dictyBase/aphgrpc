@@ -6,5 +6,5 @@ require (
 	github.com/fatih/structs v1.1.0
 	github.com/urfave/cli v1.22.5
 	google.golang.org/grpc v1.41.0
-	google.golang.org/protobuf v1.28.0
+	google.golang.org/protobuf v1.28.1
 )
